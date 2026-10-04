@@ -11,13 +11,32 @@
     <div id="ui-overlay">
       <div id="score-board">SCORE: <span id="score">0</span></div>
       <div id="multiplier-board">MULT: <span id="multiplier">1x</span></div>
-      <div id="gear-status">GEAR: <span id="equipped-gear">Tube Overdrive</span></div>
+      <div id="gear-status">PEDAL: <span id="equipped-gear">Tube Screamer</span></div>
     </div>
     
     <canvas id="highway-canvas"></canvas>
-    <button id="start-btn">START ROCKING</button>
 
-    <!-- TOUCH BUTTONS FOR MOBILE -->
+    <!-- PEDALBOARD SELECTOR OVERLAY -->
+    <div id="pedal-selector-screen">
+      <h2>SELECT YOUR TONE</h2>
+      <div class="pedal-options">
+        <button class="pedal-card active" data-pedal="overdrive">
+          <h3>TUBE SCREAMER</h3>
+          <p>Warm Mid-Boost Drive</p>
+        </button>
+        <button class="pedal-card" data-pedal="metalzone">
+          <h3>METAL ZONE</h3>
+          <p>High Gain Distortion</p>
+        </button>
+        <button class="pedal-card" data-pedal="fuzz">
+          <h3>OCTAVE FUZZ</h3>
+          <p>Heavy Vintage Fuzz</p>
+        </button>
+      </div>
+      <button id="start-btn">START ROCKING</button>
+    </div>
+
+    <!-- TOUCH CONTROLS -->
     <div id="touch-controls">
       <button class="touch-btn lane-0" data-lane="0">A</button>
       <button class="touch-btn lane-1" data-lane="1">S</button>
@@ -27,25 +46,4 @@
   </div>
   <script src="game.js"></script>
 </body>
-  </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock & Metal Guitar Hero</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="game-container">
-    <div id="ui-overlay">
-      <div id="score-board">SCORE: <span id="score">0</span></div>
-      <div id="multiplier-board">MULT: <span id="multiplier">1x</span></div>
-      <div id="gear-status">GEAR: <span id="equipped-gear">Tube Overdrive</span></div>
-    </div>
-    <canvas id="highway-canvas"></canvas>
-    <button id="start-btn">START ROCKING</button>
-  </div>
-  <script src="game.js"></script>
-</body>
-                                                                 </html>
+</html>

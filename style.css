@@ -1,124 +1,49 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  user-select: none;
+/* PEDAL SELECTOR SCREEN */
+#pedal-selector-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 450px;
+  background: rgba(12, 12, 20, 0.95);
+  border: 2px solid #ff0055;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(255, 0, 85, 0.5);
+  z-index: 30;
 }
 
-body, html {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: #0d0d11;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
+#pedal-selector-screen h2 {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: #ff3366;
+  margin-bottom: 20px;
 }
 
-#game-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+.pedal-options {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #1a1a24 0%, #08080c 100%);
-}
-
-#ui-overlay {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(15, 15, 22, 0.85);
-  padding: 12px 24px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  z-index: 10;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-#score-board span, #multiplier-board span {
-  color: #00ffcc;
-  font-size: 1.2rem;
-}
-
-#gear-status span {
-  color: #ff3366;
-  font-size: 1.1rem;
-}
-
-#highway-canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-#start-btn {
-  position: absolute;
-  bottom: 15%;
-  padding: 16px 36px;
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #fff;
-  background: linear-gradient(135deg, #ff0055 0%, #7a00ff 100%);
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 20;
-}
-
-#start-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(255, 0, 85, 0.9);
-}
-
-#start-btn:active {
-  transform: scale(0.98);
-}
-/* TOUCH CONTROLS FOR MOBILE */
-#touch-controls {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 500px;
-  display: flex;
-  justify-content: space-between;
   gap: 12px;
-  z-index: 15;
+  margin-bottom: 25px;
 }
 
-.touch-btn {
-  flex: 1;
-  height: 65px;
+.pedal-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  font-size: 1.3rem;
-  font-weight: 800;
+  padding: 12px;
   color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  touch-action: manipulation;
-  outline: none;
-  transition: transform 0.05s ease, background-color 0.05s ease;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.touch-btn.lane-0 { border-color: #00ff66; box-shadow: inset 0 0 10px rgba(0, 255, 102, 0.3); }
-.touch-btn.lane-1 { border-color: #ff0055; box-shadow: inset 0 0 10px rgba(255, 0, 85, 0.3); }
-.touch-btn.lane-2 { border-color: #ffcc00; box-shadow: inset 0 0 10px rgba(255, 204, 0, 0.3); }
-.touch-btn.lane-3 { border-color: #0099ff; box-shadow: inset 0 0 10px rgba(0, 153, 255, 0.3); }
+.pedal-card.active {
+  border-color: #00ffcc;
+  background: rgba(0, 255, 204, 0.15);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+}
 
-.touch-btn.lane-0:active { background: #00ff66; color: #000; transform: scale(0.95); }
-.touch-btn.lane-1:active { background: #ff0055; color: #fff; transform: scale(0.95); }
-.touch-btn.lane-2:active { background: #ffcc00; color: #000; transform: scale(0.95); }
-.touch-btn.lane-3:active { background: #0099ff; color: #fff; transform: scale(0.95); }
+.pedal-card h3 { font-size: 1.2rem; color: #00ffcc; }
+.pedal-card p { font-size: 0.85rem; color: #aaa; margin-top: 4px; }
