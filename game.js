@@ -124,6 +124,7 @@ class GuitarHeroGame {
   setupInputs() {
     window.addEventListener('resize', () => this.resizeCanvas());
 
+    // Keyboard controls (Desktop)
     window.addEventListener('keydown', (e) => {
       const laneIdx = this.laneKeys.indexOf(e.code);
       if (laneIdx !== -1 && !this.activeKeys[laneIdx]) {
@@ -137,6 +138,28 @@ class GuitarHeroGame {
       if (laneIdx !== -1) {
         this.activeKeys[laneIdx] = false;
       }
+    });
+
+    // Touch controls (Mobile)
+    const touchButtons = document.querySelectorAll('.touch-btn');
+    touchButtons.forEach((btn) => {
+      const laneIdx = parseInt(btn.getAttribute('data-lane'), 10);
+
+      const triggerPress = (e) => {
+        e.preventDefault(); // Prevent accidental zoom/scroll on rapid taps
+        this.activeKeys[laneIdx] = true;
+        this.checkHit(laneIdx);
+      };
+
+      const triggerRelease = (e) => {
+        e.preventDefault();
+        this.activeKeys[laneIdx] = false;
+      };
+
+      btn.addEventListener('touchstart', triggerPress, { passive: false });
+      btn.addEventListener('touchend', triggerRelease, { passive: false });
+      btn.addEventListener('mousedown', triggerPress);
+      btn.addEventListener('mouseup', triggerRelease);
     });
 
     document.getElementById('start-btn').addEventListener('click', () => {
