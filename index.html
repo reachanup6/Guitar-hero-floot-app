@@ -2,6 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Rock & Metal Guitar Hero</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <div id="ui-overlay">
+      <div id="score-board">SCORE: <span id="score">0</span></div>
+      <div id="multiplier-board">MULT: <span id="multiplier">1x</span></div>
+      <div id="gear-status">GEAR: <span id="equipped-gear">Tube Overdrive</span></div>
+    </div>
+    
+    <canvas id="highway-canvas"></canvas>
+    <button id="start-btn">START ROCKING</button>
+
+    <!-- TOUCH BUTTONS FOR MOBILE -->
+    <div id="touch-controls">
+      <button class="touch-btn lane-0" data-lane="0">A</button>
+      <button class="touch-btn lane-1" data-lane="1">S</button>
+      <button class="touch-btn lane-2" data-lane="2">K</button>
+      <button class="touch-btn lane-3" data-lane="3">L</button>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+  </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock & Metal Guitar Hero</title>
   <link rel="stylesheet" href="style.css">
